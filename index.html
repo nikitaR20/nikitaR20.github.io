@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  Nikita Rathod — QA portfolio
+  Before publishing, check the items marked "CHECK:" below.
+  ============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nikita Rathod — Senior QA Engineer</title>
+<meta name="description" content="Senior QA Engineer with 6 years testing enterprise SaaS across government, healthcare, ERP and education. Test strategy, manual depth, and automation frameworks in Playwright, Selenium and C#.">
+<meta property="og:title" content="Nikita Rathod — Senior QA Engineer">
+<meta property="og:description" content="Test strategy, manual depth, and automation frameworks. 6 years in enterprise SaaS QA.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#0B1B2E;
+  --navy-2:#112742;
+  --navy-3:#1A3A5F;
+  --bone:#E7ECF3;
+  --slate:#93A7C0;
+  --amber:#E8A24A;
+  --line:rgba(231,236,243,.13);
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --pad:clamp(1.25rem,4vw,3.5rem);
+  --maxw:1240px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--navy);color:var(--bone);
+  font-family:var(--body);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.bleed{background:var(--navy-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+.eyebrow{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--slate);margin:0 0 1.3rem;
+  display:flex;align-items:center;gap:.75rem;
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* ---------- top bar ---------- */
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(11,27,46,.85);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.mark{font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:-.02em;text-decoration:none}
+.mark span{color:var(--amber)}
+.topnav{display:flex;gap:1.7rem}
+.topnav a{font-family:var(--mono);font-size:.78rem;color:var(--slate);text-decoration:none;transition:color .2s}
+.topnav a:hover{color:var(--bone)}
+@media(max-width:760px){.topnav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(2.5rem,6vw,5rem) 0 clamp(2.5rem,6vw,4.5rem)}
+.hero .wrap{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,470px);
+  gap:clamp(2rem,5vw,4.5rem);align-items:center;
+}
+@media(max-width:960px){.hero .wrap{grid-template-columns:1fr;gap:2.8rem}}
+
+.status{
+  display:inline-flex;align-items:center;gap:.6rem;font-family:var(--mono);
+  font-size:.74rem;color:var(--slate);border:1px solid var(--line);
+  border-radius:999px;padding:.35rem .85rem;margin-bottom:1.8rem;
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 0 rgba(232,162,74,.6);animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(232,162,74,0)}100%{box-shadow:0 0 0 0 rgba(232,162,74,0)}}
+
+.hero h1{font-family:var(--display);font-size:clamp(2.5rem,6vw,4.4rem);font-weight:700;line-height:.98;letter-spacing:-.035em;margin:0 0 1rem}
+.hero .role{font-family:var(--mono);font-size:clamp(.8rem,1.6vw,.95rem);color:var(--amber);margin:0 0 1.6rem}
+.hero .lead{font-family:var(--display);font-size:clamp(1.35rem,2.8vw,1.95rem);font-weight:500;line-height:1.24;letter-spacing:-.022em;color:var(--bone);max-width:20ch;margin:0 0 1.2rem}
+.hero .pitch{font-size:clamp(.98rem,1.4vw,1.08rem);color:var(--slate);max-width:50ch;margin:0 0 2.2rem;line-height:1.68}
+.hero .pitch strong{color:var(--bone);font-weight:500}
+
+.actions{display:flex;flex-wrap:wrap;gap:.65rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);
+  font-size:.81rem;padding:.68rem 1.1rem;border-radius:6px;text-decoration:none;
+  border:1px solid var(--line);transition:background .2s,border-color .2s,transform .2s;
+}
+.btn:hover{background:var(--navy-2);border-color:var(--slate);transform:translateY(-1px)}
+.btn.primary{background:var(--amber);color:var(--navy);border-color:var(--amber);font-weight:500}
+.btn.primary:hover{background:#efb469;border-color:#efb469}
+
+/* ---------- pipeline diagram ---------- */
+.pipe{width:100%;height:auto;display:block;overflow:visible}
+.pipe .node{fill:var(--navy-2);stroke:var(--line);stroke-width:1}
+.pipe .node-hi{fill:var(--navy-3);stroke:rgba(232,162,74,.35)}
+.pipe .t{font-family:var(--display);font-size:14.5px;font-weight:600;fill:var(--bone)}
+.pipe .s{font-family:var(--mono);font-size:9.3px;fill:var(--slate)}
+.pipe .tag{font-family:var(--mono);font-size:8.6px;fill:var(--amber);letter-spacing:.08em}
+.pipe .flow{fill:none;stroke:rgba(232,162,74,.55);stroke-width:1.6;stroke-dasharray:5 7;animation:dash 1.5s linear infinite}
+.pipe .loop{fill:none;stroke:var(--line);stroke-width:1.4;stroke-dasharray:3 5}
+.pipe .loopLabel{font-family:var(--mono);font-size:8.4px;fill:var(--slate);letter-spacing:.1em}
+@keyframes dash{to{stroke-dashoffset:-12}}
+.pipe g.stage{opacity:0;animation:rise .7s ease forwards}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.pipe g.stage:nth-of-type(1){animation-delay:.05s}
+.pipe g.stage:nth-of-type(2){animation-delay:.15s}
+.pipe g.stage:nth-of-type(3){animation-delay:.3s}
+.pipe g.stage:nth-of-type(4){animation-delay:.45s}
+.pipe g.stage:nth-of-type(5){animation-delay:.6s}
+.pipe g.stage:nth-of-type(6){animation-delay:.75s}
+
+/* ---------- metrics band ---------- */
+.metrics .wrap{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  padding-top:2.2rem;padding-bottom:2.2rem;
+}
+.metric{padding:0 clamp(.6rem,2vw,1.8rem);border-left:1px solid var(--line)}
+.metric:first-child{border-left:0;padding-left:0}
+.metric b{display:block;font-family:var(--display);font-size:clamp(1.8rem,3.6vw,2.9rem);font-weight:700;letter-spacing:-.03em;line-height:1;color:var(--amber)}
+.metric span{display:block;font-family:var(--mono);font-size:.71rem;color:var(--slate);letter-spacing:.06em;margin-top:.55rem;line-height:1.45}
+@media(max-width:720px){
+  .metrics .wrap{grid-template-columns:1fr 1fr;gap:1.6rem 0}
+  .metric:nth-child(3){border-left:0;padding-left:0}
+}
+
+/* ---------- sections ---------- */
+section{padding:clamp(3.5rem,7vw,6rem) 0}
+section.ruled{border-top:1px solid var(--line)}
+.sechead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,44ch);gap:2rem 3rem;align-items:end;margin-bottom:2.8rem}
+@media(max-width:860px){.sechead{grid-template-columns:1fr;gap:1rem;margin-bottom:2rem}}
+h2.title{font-family:var(--display);font-size:clamp(1.8rem,4vw,3rem);font-weight:600;letter-spacing:-.03em;line-height:1.08;margin:0}
+.lede{color:var(--slate);margin:0;font-size:1rem;line-height:1.7}
+
+/* ---------- expertise ---------- */
+.tracks{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:1.1rem}
+@media(max-width:820px){.tracks{grid-template-columns:1fr}}
+.track{background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:1.8rem 1.6rem}
+.track-head{display:flex;align-items:baseline;gap:.7rem;margin-bottom:1.3rem}
+.track-head h3{font-family:var(--display);font-size:1.3rem;font-weight:600;letter-spacing:-.02em;margin:0}
+.track-head span{font-family:var(--mono);font-size:.66rem;color:var(--amber);letter-spacing:.11em;text-transform:uppercase}
+.track ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.42rem}
+.track li{font-size:.85rem;background:var(--navy-3);border-radius:5px;padding:.3rem .65rem}
+
+.foundations{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.fgroup{background:var(--navy);padding:1.4rem 1.35rem}
+.fgroup h4{font-family:var(--mono);font-size:.69rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin:0 0 .75rem}
+.fgroup p{margin:0;font-size:.88rem;color:var(--bone);line-height:1.75}
+
+/* ---------- projects ---------- */
+.projects{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(420px,1fr))}
+@media(max-width:520px){.projects{grid-template-columns:1fr}}
+.project{
+  position:relative;background:var(--navy-2);border:1px solid var(--line);border-radius:12px;
+  padding:1.7rem 1.6rem 1.5rem;display:flex;flex-direction:column;
+  transition:transform .25s ease,border-color .25s ease;
+}
+.project::before{content:"";position:absolute;left:-1px;top:1.5rem;bottom:1.5rem;width:2px;background:var(--amber);border-radius:2px;transform:scaleY(0);transform-origin:top;transition:transform .3s ease}
+.project:hover{transform:translateY(-3px);border-color:rgba(232,162,74,.35)}
+.project:hover::before{transform:scaleY(1)}
+.project .deploy{font-family:var(--mono);font-size:.67rem;color:var(--slate);display:flex;align-items:center;gap:.5rem;margin-bottom:.9rem;word-break:break-word}
+.project .deploy i{width:6px;height:6px;border-radius:50%;background:var(--amber);flex:none}
+.project .deploy.offline i{background:var(--slate)}
+.project h3{font-family:var(--display);font-size:1.35rem;font-weight:600;letter-spacing:-.02em;margin:0 0 .65rem;line-height:1.22}
+.project p{color:var(--slate);font-size:.93rem;margin:0 0 1.1rem;flex:1}
+.project p b{color:var(--bone);font-weight:500}
+.stack{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 1.3rem;padding:0}
+.stack li{font-family:var(--mono);font-size:.67rem;color:var(--slate);border:1px solid var(--line);border-radius:3px;padding:.16rem .46rem}
+.projlinks{display:flex;gap:.5rem;flex-wrap:wrap}
+.projlinks a{font-family:var(--mono);font-size:.76rem;text-decoration:none;padding:.45rem .8rem;border-radius:5px;border:1px solid var(--line);transition:background .2s,border-color .2s}
+.projlinks a:hover{background:var(--navy-3);border-color:var(--slate)}
+.projlinks a.live{color:var(--amber);border-color:rgba(232,162,74,.4)}
+
+/* ---------- screenshot carousel (ready to use) ---------- */
+.shots{position:relative;margin:0 0 1.1rem}
+.shots-track{display:flex;gap:.6rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;border-radius:8px;scrollbar-width:none}
+.shots-track::-webkit-scrollbar{display:none}
+.shots-track img{flex:0 0 100%;scroll-snap-align:center;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--line);background:var(--navy-3);cursor:zoom-in}
+.shots-nav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 .4rem;pointer-events:none}
+.shots-nav button{pointer-events:auto;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:rgba(11,27,46,.75);color:var(--bone);font-size:.9rem;cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(4px)}
+.shots-nav button:hover{background:var(--navy-3)}
+.shots-dots{display:flex;gap:.3rem;justify-content:center;margin-top:.55rem}
+.shots-dots i{width:5px;height:5px;border-radius:50%;background:var(--line);transition:background .2s}
+.shots-dots i.on{background:var(--amber)}
+
+/* ---------- experience ---------- */
+.job{display:grid;grid-template-columns:190px minmax(0,1fr);gap:1.5rem 2.5rem;padding:1.9rem 0;border-bottom:1px solid var(--line)}
+.job:last-child{border-bottom:0}
+.job .when{font-family:var(--mono);font-size:.76rem;color:var(--slate);padding-top:.3rem}
+.job h3{font-size:1.1rem;font-weight:600;margin:0 0 .7rem}
+.job h3 em{font-style:normal;color:var(--amber);font-weight:500}
+.job ul{margin:0;padding-left:1.1rem;color:var(--slate);font-size:.92rem}
+.job li{margin-bottom:.5rem;break-inside:avoid}
+.job li b{color:var(--bone);font-weight:500}
+.job p{color:var(--slate);font-size:.92rem;margin:0}
+@media(min-width:1000px){.job ul{column-count:2;column-gap:2.8rem}}
+@media(max-width:700px){.job{grid-template-columns:1fr;gap:.55rem}}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem 4rem;align-items:center}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr;gap:1.8rem}}
+.contact-grid h2{max-width:14ch}
+footer{border-top:1px solid var(--line);padding:2rem 0;font-family:var(--mono);font-size:.72rem;color:var(--slate)}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* ---------- a11y + motion ---------- */
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+  .pipe g.stage{opacity:1}
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="mark" href="#top">NR<span>.</span></a>
+    <nav class="topnav">
+      <a href="#expertise">Expertise</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <!-- CHECK: set your actual location -->
+        <div class="status"><span class="dot"></span> Open to QA / SDET roles · Minnesota, US &amp; remote</div>
+
+        <h1>Nikita Rathod</h1>
+        <p class="role">Senior QA Engineer · 6 years · strategy and automation</p>
+
+        <p class="lead">Some systems are genuinely hard to test.</p>
+        <p class="pitch">
+          Enterprise platforms where a missed defect becomes a compliance incident, not a bug ticket.
+          AI systems that don't return the same answer twice. That's the work I go looking for.
+          Six years across government, healthcare, ERP and education — I design the test strategy,
+          then build the automation that enforces it.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="#work">See the work</a>
+          <a class="btn" href="mailto:nikitarathod.d@gmail.com">Email</a>
+          <a class="btn" href="https://github.com/nikitaR20">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/nikitarathod">LinkedIn</a>
+          <!-- CHECK: add resume.pdf to this repo -->
+          <a class="btn" href="resume.pdf">Résumé</a>
+        </div>
+      </div>
+
+      <!-- ---------- pipeline diagram ---------- -->
+      <svg class="pipe" viewBox="0 0 480 572" role="img"
+           aria-label="Diagram of a QA pipeline. Two parallel tracks, test design and automation, feed into an Azure DevOps CI/CD stage, then execution, then reporting and evidence, then triage and root cause analysis, which loops back to test design.">
+
+        <defs>
+          <marker id="ar" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0 0 L8 4 L0 8 z" fill="rgba(232,162,74,.55)"/>
+          </marker>
+          <marker id="arL" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto">
+            <path d="M0 0 L8 4 L0 8 z" fill="rgba(231,236,243,.3)"/>
+          </marker>
+        </defs>
+
+        <!-- feedback loop -->
+        <path class="loop" marker-end="url(#arL)" d="M44 518 H32 Q22 518 22 508 V69 Q22 59 32 59 H42"/>
+        <text class="loopLabel" x="13" y="290" text-anchor="middle" transform="rotate(-90 13 290)">FEEDBACK LOOP</text>
+
+        <!-- connectors -->
+        <path class="flow" marker-end="url(#ar)" d="M146 100 C146 128, 258 124, 258 148"/>
+        <path class="flow" marker-end="url(#ar)" d="M370 100 C370 128, 258 124, 258 148"/>
+        <path class="flow" marker-end="url(#ar)" d="M258 214 V260"/>
+        <path class="flow" marker-end="url(#ar)" d="M258 326 V372"/>
+        <path class="flow" marker-end="url(#ar)" d="M258 438 V484"/>
+
+        <!-- stage 1: two tracks -->
+        <g class="stage">
+          <rect class="node node-hi" x="44" y="20" width="203" height="80" rx="10"/>
+          <text class="tag" x="60" y="41">MANUAL</text>
+          <text class="t" x="60" y="62">Test design</text>
+          <text class="s" x="60" y="78">exploratory · RTM</text>
+          <text class="s" x="60" y="91">risk-based · UAT</text>
+        </g>
+        <g class="stage">
+          <rect class="node node-hi" x="269" y="20" width="203" height="80" rx="10"/>
+          <text class="tag" x="285" y="41">AUTOMATED</text>
+          <text class="t" x="285" y="62">Automation</text>
+          <text class="s" x="285" y="78">Playwright · Selenium</text>
+          <text class="s" x="285" y="91">Appium · SpecFlow</text>
+        </g>
+
+        <!-- stage 2: CI -->
+        <g class="stage">
+          <rect class="node" x="44" y="148" width="428" height="66" rx="10"/>
+          <text class="t" x="60" y="180">Azure DevOps CI/CD</text>
+          <text class="s" x="60" y="198">on every commit · Docker · parallel runs</text>
+        </g>
+
+        <!-- stage 3: execution -->
+        <g class="stage">
+          <rect class="node" x="44" y="260" width="428" height="66" rx="10"/>
+          <text class="t" x="60" y="292">Execution</text>
+          <text class="s" x="60" y="310">cross-browser · mobile · API · load · WCAG</text>
+        </g>
+
+        <!-- stage 4: evidence -->
+        <g class="stage">
+          <rect class="node" x="44" y="372" width="428" height="66" rx="10"/>
+          <text class="t" x="60" y="404">Report &amp; evidence</text>
+          <text class="s" x="60" y="422">HTML reports · traces · screenshots · logs</text>
+        </g>
+
+        <!-- stage 5: triage -->
+        <g class="stage">
+          <rect class="node" x="44" y="484" width="428" height="66" rx="10"/>
+          <text class="t" x="60" y="516">Triage &amp; RCA</text>
+          <text class="s" x="60" y="534">JIRA · Azure DevOps · root cause · retest</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ================= METRICS ================= -->
+  <div class="bleed metrics">
+    <div class="wrap">
+      <div class="metric"><b>80%</b><span>FASTER REGRESSION CYCLES</span></div>
+      <div class="metric"><b>40%</b><span>FASTER TEAM ONBOARDING</span></div>
+      <div class="metric"><b>90%</b><span>LESS MANUAL DB VALIDATION</span></div>
+      <div class="metric"><b>10+</b><span>ENTERPRISE PROJECTS LED</span></div>
+    </div>
+  </div>
+
+  <!-- ================= EXPERTISE ================= -->
+  <section id="expertise">
+    <div class="wrap reveal">
+      <div class="sechead">
+        <h2 class="title">Two tracks,<br>one tester</h2>
+        <p class="lede">
+          Most QA people pick a side. Test design decides what is worth checking;
+          automation decides what should never be checked by hand twice. Doing both
+          means the suite reflects a strategy instead of whatever was easy to script.
+        </p>
+      </div>
+
+      <div class="tracks">
+        <div class="track">
+          <div class="track-head"><h3>Test design &amp; strategy</h3><span>Manual</span></div>
+          <ul>
+            <li>Test strategy &amp; planning</li><li>Master test plans</li>
+            <li>Release readiness criteria</li><li>Requirements traceability (RTM)</li>
+            <li>Exploratory testing</li><li>Risk-based testing</li>
+            <li>Boundary value analysis</li><li>Equivalence partitioning</li>
+            <li>Smoke &amp; sanity</li><li>UAT</li>
+            <li>Defect triage &amp; RCA</li><li>Regulatory compliance</li>
+            <li>WCAG accessibility</li>
+          </ul>
+        </div>
+        <div class="track">
+          <div class="track-head"><h3>Automation &amp; engineering</h3><span>Automated</span></div>
+          <ul>
+            <li>Playwright</li><li>Selenium</li><li>Appium</li>
+            <li>Cucumber (BDD)</li><li>SpecFlow</li><li>JMeter</li>
+            <li>Page Object Model</li><li>TDD / BDD</li>
+            <li>CI/CD in Azure DevOps</li><li>Docker</li>
+            <li>Cross-browser &amp; mobile</li><li>Performance &amp; load testing</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foundations">
+        <div class="fgroup"><h4>Languages</h4><p>Python · C# · TypeScript · SQL</p></div>
+        <div class="fgroup"><h4>APIs &amp; data</h4><p>Postman · REST · PostgreSQL · MS SQL Server · MongoDB</p></div>
+        <div class="fgroup"><h4>Process &amp; tools</h4><p>Azure DevOps · JIRA · Git/GitHub · Agile/Scrum · STLC/SDLC</p></div>
+        <div class="fgroup"><h4>AI testing</h4><p>LLM reliability testing · RAG evaluation · Prompt engineering · AI-augmented test generation</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="work" class="ruled">
+    <div class="wrap reveal">
+      <div class="sechead">
+        <h2 class="title">Recent work</h2>
+        <p class="lede">
+          Built alongside the MS program, mostly circling one question:
+          how do you test a system that doesn't return the same answer twice?
+        </p>
+      </div>
+
+      <div class="projects">
+
+        <!-- CHECK: confirm every repo slug matches your actual repos -->
+        <article class="project">
+          <div class="deploy"><i></i> Playwright report · nikitaR20.github.io/saucedemo-automation</div>
+          <h3>SauceDemo E2E automation framework</h3>
+
+          <!-- SCREENSHOTS: uncomment and point at real files in a /shots folder
+          <div class="shots">
+            <div class="shots-track">
+              <img src="shots/saucedemo-01.webp" alt="Playwright HTML report, 42 tests passing across three browsers">
+              <img src="shots/saucedemo-02.webp" alt="Trace viewer open on a failed checkout step">
+            </div>
+            <div class="shots-nav"><button aria-label="Previous screenshot">‹</button><button aria-label="Next screenshot">›</button></div>
+            <div class="shots-dots"></div>
+          </div>
+          -->
+
+          <p>
+            A full UI automation suite over SwagLabs covering cart, checkout and inventory flows,
+            built on the Page Object Model with cross-browser execution. Two experiments run on top:
+            <b>AI-assisted test generation</b> using Claude and Copilot, and <b>self-healing locator
+            strategies</b> — because locator churn is what actually kills a suite, not test logic.
+          </p>
+          <ul class="stack"><li>Playwright</li><li>TypeScript</li><li>Page Object Model</li><li>GitHub Actions</li></ul>
+          <div class="projlinks">
+            <a class="live" href="https://nikitaR20.github.io/saucedemo-automation">Latest test report →</a>
+            <a href="https://github.com/nikitaR20/saucedemo-automation">Source</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="deploy"><i></i> Benchmark results · nikitaR20.github.io/rag-comparison</div>
+          <h3>RAG evaluation &amp; comparison tool</h3>
+          <p>
+            A harness that compares embedding models and vector databases head to head on
+            <b>retrieval quality, query latency and indexing cost</b>. It's a QA tool in disguise:
+            the hard part was defining what "correct retrieval" means precisely enough to score it
+            consistently across runs.
+          </p>
+          <ul class="stack"><li>Python</li><li>Claude API</li><li>Vector DBs</li><li>Benchmarking</li></ul>
+          <div class="projlinks">
+            <a class="live" href="https://nikitaR20.github.io/rag-comparison">View results →</a>
+            <a href="https://github.com/nikitaR20/rag-comparison">Source</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="deploy offline"><i></i> browser extension · source &amp; walkthrough</div>
+          <h3>Real-time fact checker extension</h3>
+          <p>
+            A browser extension that flags and classifies misinformation using a multi-source RAG
+            pipeline over search retrieval plus LLM reasoning. I ran the
+            <b>benchmarking and UAT validation</b> across claim categories — including the
+            uncomfortable cases where the model is confidently wrong.
+          </p>
+          <ul class="stack"><li>JavaScript</li><li>RAG pipeline</li><li>LLM reasoning</li><li>UAT</li></ul>
+          <div class="projlinks">
+            <a href="https://github.com/nikitaR20/fact-checker-extension">Source</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="deploy offline"><i></i> FastAPI service · source &amp; write-up</div>
+          <h3>Health claims AI solution</h3>
+          <p>
+            A medical claims system that suggests ICD/CPT codes from clinical diagnosis text,
+            reaching <b>80%+ categorization accuracy</b>. I owned UAT validation, accuracy
+            benchmarking and requirements traceability across messy healthcare claims data,
+            and surfaced the data anomalies and logic gaps that were capping accuracy.
+          </p>
+          <ul class="stack"><li>FastAPI</li><li>PostgreSQL</li><li>Claude API</li><li>Traceability</li></ul>
+          <div class="projlinks">
+            <a href="https://github.com/nikitaR20/health-claims-ai">Source</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience" class="ruled">
+    <div class="wrap reveal">
+      <div class="sechead">
+        <h2 class="title">Six years in enterprise QA</h2>
+        <p class="lede">
+          Government, ERP, education and healthcare platforms — regulated domains where
+          release readiness is a document someone signs, not a feeling.
+        </p>
+      </div>
+
+      <div class="exp">
+        <div class="job">
+          <div class="when">2021 — 2023<br>Civica</div>
+          <div>
+            <h3>Senior Software Test Engineer <em>· A Blackstone portfolio company</em></h3>
+            <ul>
+              <li>Led QA strategy across <b>10+ large-scale projects</b> — master test plans, release readiness criteria, and 100% requirements traceability through delivery.</li>
+              <li>Architected E2E automation frameworks in <b>Selenium (C#)</b> with BDD/TDD, integrated into Azure DevOps CI/CD, <b>cutting regression cycle time by 80%</b>.</li>
+              <li>Ran defect triage and full bug lifecycle in Azure DevOps, setting the prioritisation standards cross-functional teams worked to.</li>
+              <li>Mentored junior QA engineers through a structured onboarding program, <b>reducing ramp-up time by 40%</b>.</li>
+              <li>Managed stakeholders across <b>4 countries</b>, including client demos and UAT walkthroughs with end users.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="when">2019 — 2021<br>Civica</div>
+          <div>
+            <h3>Software Test Engineer <em>· A Blackstone portfolio company</em></h3>
+            <ul>
+              <li>Executed E2E functional, exploratory and regression testing across enterprise web and mobile — including hardware-software integration and video, audio, SMS and push notification workflows.</li>
+              <li>Engineered <b>JMeter</b> performance scenarios, identifying and resolving 100% of critical pre-production bottlenecks.</li>
+              <li>Ran <b>WCAG accessibility testing</b> alongside cross-browser and cross-device compatibility validation.</li>
+              <li>Led API testing in Postman: payload integrity, request/response handling, and back-end data consistency across complex integrations.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="when">2017 — 2019<br>Matrix Comsec</div>
+          <div>
+            <h3>Software Engineer — Testing</h3>
+            <ul>
+              <li>Designed a SQL-based database validation framework across <b>8+ system modules</b>, cutting manual testing effort by 90% at 99%+ data synchronisation accuracy.</li>
+              <li>Built automated validation for complex access control policies with 100% security logic accuracy — <b>adopted org-wide</b> by both development and QA.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="when">Dec 2026 (expected)</div>
+          <div>
+            <h3>MS, Computer Science <em>· Metropolitan State University</em></h3>
+            <p>Minnesota, US — GPA 4.0</p>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="when">Bachelor's</div>
+          <div>
+            <h3>BE, Computer Science <em>· Bits Edu Campus</em></h3>
+            <p>India — GPA 3.95</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="ruled">
+    <div class="wrap reveal">
+      <div class="contact-grid">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 class="title">Let's talk</h2>
+        </div>
+        <div>
+          <p class="lede" style="margin-bottom:1.8rem">
+            Open to QA, SDET and test engineering roles. Happy to walk through any framework
+            or test plan here in detail — email is fastest.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="mailto:nikitarathod.d@gmail.com">nikitarathod.d@gmail.com</a>
+            <a class="btn" href="https://www.linkedin.com/in/nikitarathod">LinkedIn</a>
+            <a class="btn" href="https://github.com/nikitaR20">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Nikita Rathod</span>
+    <span>Built and deployed from GitHub</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+document.querySelectorAll('.shots').forEach(box => {
+  const track = box.querySelector('.shots-track');
+  const imgs = [...track.querySelectorAll('img')];
+  const dots = box.querySelector('.shots-dots');
+  const nav = box.querySelector('.shots-nav');
+  const [prev, next] = nav.querySelectorAll('button');
+  if (imgs.length < 2) { nav.style.display = 'none'; dots.style.display = 'none'; return; }
+  imgs.forEach(() => dots.insertAdjacentHTML('beforeend', '<i></i>'));
+  const marks = [...dots.children];
+  const sync = () => {
+    const i = Math.round(track.scrollLeft / track.clientWidth);
+    marks.forEach((m, n) => m.classList.toggle('on', n === i));
+  };
+  const go = d => track.scrollBy({ left: d * track.clientWidth, behavior: 'smooth' });
+  prev.onclick = () => go(-1);
+  next.onclick = () => go(1);
+  track.addEventListener('scroll', sync, { passive: true });
+  imgs.forEach(img => img.onclick = () => window.open(img.src, '_blank'));
+  sync();
+});
+</script>
+
+</body>
+</html>
